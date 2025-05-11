@@ -1,0 +1,9 @@
+# Ignore virtual environment
+venv/
+
+curated_cc_credit_card/cc_credit_card_curated.parquet
+transformed_cc_credit_card/cc_credit_card_transformed.parquet
+raw_cc_credit_card/cc_sample_transaction.json
+
+# Ignore specific files
+cc_credit_card_transformed.txt
