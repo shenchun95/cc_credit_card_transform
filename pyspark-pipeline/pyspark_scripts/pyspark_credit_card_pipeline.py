@@ -17,7 +17,7 @@ def main():
     spark = SparkSession.builder.config(conf=conf).getOrCreate()
 
     # --- Stage 1: Load and Transform Data (from cc_credit_card.ipynb) ---
-    raw_df = spark.read.json('../raw_cc_credit_card/raw_cc_credit_card') # Path adjusted for script location
+    raw_df = spark.read.json('../../raw_cc_credit_card/raw_cc_credit_card') # Path adjusted for script location
 
     transformed_df = raw_df.select('*')
 
@@ -143,7 +143,7 @@ def main():
 
     # --- Stage 3: Write Final Output ---
     # Output path relative to the project root for Airflow execution
-    output_path = '../transformed_cc_credit_card/cc_credit_card_transformed_airflow.parquet'
+    output_path = '../../transformed_cc_credit_card/cc_credit_card_transformed_airflow.parquet'
 
     encrypted_data_df.write.partitionBy("cc_bic", "category", "gender").mode('overwrite').parquet(output_path)
 
